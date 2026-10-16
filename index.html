@@ -1,1 +1,61 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>دحوم</title></head><body style="background:#111;color:#eee;font-family:sans-serif;padding:24px"><h1>دحوم loke2211</h1><p>الإبط مفتوح. الخرق مفتوح. صور نفسه.</p><p><a href="https://litter.catbox.moe/cc2lt8.jpg">الإبط</a></p><p><a href="https://litter.catbox.moe/91ctlz.jpg">الديلو</a></p><p><a href="https://x.com/Loke22112_">الحساب</a></p></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دحوم - معرض الصور</title>
+<style>
+body { background:#0a0a0a; color:#eee; font-family:system-ui,sans-serif; margin:0; padding:20px; }
+h1 { text-align:center; color:#ff2a2a; font-size:2em; margin-bottom:10px; }
+.subtitle { text-align:center; color:#888; margin-bottom:30px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:12px; }
+.item { background:#111; border:1px solid #333; border-radius:8px; overflow:hidden; cursor:pointer; transition:transform .2s; }
+.item:hover { transform:scale(1.03); border-color:#ff2a2a; }
+.item img { width:100%; height:240px; object-fit:cover; display:block; }
+.caption { padding:8px; font-size:12px; text-align:center; color:#ccc; }
+.lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.9); z-index:999; justify-content:center; align-items:center; }
+.lightbox.active { display:flex; }
+.lightbox img { max-width:90vw; max-height:90vh; object-fit:contain; }
+.close { position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer; }
+</style>
+</head>
+<body>
+<h1>دحوم loke2211</h1>
+<div class="subtitle">معرض الفريمات - كلبة الزب الأسود</div>
+<div class="grid" id="grid"></div>
+<div class="lightbox" id="lb" onclick="this.classList.remove('active')">
+  <span class="close">×</span>
+  <img id="lbimg" src="">
+</div>
+<script>
+const images = [
+  'دحوم_001.jpg','دحوم_002.jpg','دحوم_003.jpg','دحوم_004.jpg','دحوم_005.jpg',
+  'دحوم_006.jpg','دحوم_007.jpg','دحوم_008.jpg','دحوم_009.jpg','دحوم_010.jpg',
+  'دحوم_011.jpg','دحوم_012.jpg','دحوم_013.jpg','دحوم_014.jpg','دحوم_015.jpg',
+  'دحوم_016.jpg','دحوم_017.jpg','دحوم_018.jpg','دحوم_019.jpg','دحوم_020.jpg',
+  'دحوم_021.jpg','دحوم_022.jpg','دحوم_023.jpg','دحوم_024.jpg','دحوم_025.jpg',
+  'دحوم_026.jpg','دحوم_027.jpg','دحوم_028.jpg','دحوم_029.jpg','دحوم_030.jpg',
+  'دحوم_031.jpg','دحوم_032.jpg','دحوم_033.jpg','دحوم_034.jpg','دحوم_035.jpg',
+  'دحوم_036.jpg','دحوم_037.jpg','دحوم_038.jpg','دحوم_039.jpg','دحوم_040.jpg',
+  'دحوم_041.jpg','دحوم_042.jpg','دحوم_043.jpg','دحوم_044.jpg','دحوم_045.jpg',
+  'دحوم_046.jpg','دحوم_047.jpg','دحوم_048.jpg','دحوم_049.jpg','دحوم_050.jpg',
+  'دحوم_051.jpg','دحوم_052.jpg','دحوم_053.jpg','دحوم_054.jpg','دحوم_055.jpg',
+  'دحوم_056.jpg','دحوم_057.jpg','دحوم_058.jpg','دحوم_059.jpg','دحوم_060.jpg',
+  'دحوم_061.jpg','دحوم_062.jpg','دحوم_063.jpg','دحوم_064.jpg','دحوم_065.jpg',
+  'دحوم_066.jpg','دحوم_067.jpg','دحوم_068.jpg','دحوم_069.jpg','دحوم_070.jpg'
+];
+const base = 'https://raw.githubusercontent.com/loke22112/pit-open/main/img/';
+const grid = document.getElementById('grid');
+images.forEach(name => {
+  const div = document.createElement('div');
+  div.className = 'item';
+  div.innerHTML = `<img src="${base}${encodeURIComponent(name)}" loading="lazy"><div class="caption">${name}</div>`;
+  div.onclick = () => {
+    document.getElementById('lbimg').src = base + encodeURIComponent(name);
+    document.getElementById('lb').classList.add('active');
+  };
+  grid.appendChild(div);
+});
+</script>
+</body>
+</html>
